@@ -24,7 +24,7 @@
             ><span class="logo-web">Web</span>Studio</a
           >
           <menu class="menu">
-            <li><a href="">Studio</a></li>
+            <li><a class="nav-active" href="">Studio</a></li>
             <li><a href="./portfolio.html">Portfolio</a></li>
             <li><a href="">Contacts</a></li>
           </menu>
@@ -44,7 +44,10 @@
     <main>
       <section class="section container section-index">
         <h1>Effective Solutions for Your Business</h1>
-        <button class="button-index" type="button">Order Service</button>
+
+        <button class="button-index" type="button" data-modal-open>
+          Order Service
+        </button>
       </section>
       <section class="section">
         <div class="container">
@@ -410,5 +413,11 @@
         </div>
       </div>
     </footer>
+    <div class="modal is-hidden" data-modal>
+      <div class="modal-body">
+        <button class="modal-close" data-modal-close>x</button>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>

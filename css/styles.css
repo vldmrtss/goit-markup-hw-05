@@ -42,7 +42,20 @@ body {
 .header-wrapper > nav > a {
   margin-right: 76px;
 }
-
+.nav-active {
+  position: relative;
+  display: flex;
+  color: var(--iris);
+}
+.nav-active::after {
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  width: 100%;
+  height: 4px;
+  background-color: var(--ocean);
+  border-radius: 2px;
+}
 .container {
   max-width: 1158px;
   padding-inline: 15px;
@@ -219,6 +232,7 @@ body {
   height: 100%;
   border-radius: 4px;
   border: 1px solid var(--lightslate);
+  color: var(--lightslate);
   align-items: center;
   justify-content: center;
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -412,10 +426,36 @@ body {
 .portfolio-items-list {
   list-style-type: none;
 }
-.item {
+.portfolio-item {
   flex-basis: calc((100% - 48px) / 3);
 }
-
+.portfolio-card {
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-card > img {
+  display: block;
+  width: 100%;
+  height: 100;
+  object-fit: cover;
+}
+.card-discription {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.32px;
+  padding: 40px 32px 164px 32px;
+  position: absolute;
+  inset: 0;
+  background-color: var(--iris);
+  color: #fff;
+  translate: 0 100% 0;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portfolio-link:hover .card-discription {
+  translate: 0;
+}
 .portfolio-link {
   display: block;
   width: 360px;
@@ -519,7 +559,7 @@ img {
 }
 
 .image:hover,
-.iamge:active {
+.image:focus {
   box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
     0px 1px 1px 0px rgba(46, 47, 66, 0.16),
     0px 1px 6px 0px rgba(46, 47, 66, 0.08);
@@ -548,4 +588,36 @@ img {
 .footer-social-link:focus {
   background-color: var(--green);
   cursor: pointer;
+}
+/* --MODAL-- */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  pointer-events: all;
+  visibility: visible;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-body {
+  position: relative;
+  width: 408px;
+  height: 584px;
+  margin: 80px auto 13px auto;
+  background-color: var(--white);
+}
+.modal-close {
+  position: absolute;
+  inset: 1em 1em auto auto;
+  width: 24px;
+  height: 24px;
+  border-radius: 10px;
+  color: var(--navyblue);
+  background-color: var(--cornflowers);
+}
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
 }
